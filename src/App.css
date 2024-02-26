@@ -1,0 +1,83 @@
+:root{
+  --color-background: #1E2426;
+  --color-main: #fff;
+  --color-resaltado: #C68951;
+
+  color: var(--color-main);
+  font-family: "Brygada 1918", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+*{
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.container{
+  background-color: var(--color-background);
+}
+
+.app{
+  position: relative;
+  max-width: 450px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 100vh;
+  padding: 0 1rem;
+}
+
+.BQnSLogo{
+  max-width: 15rem;
+  margin: auto;
+  fill: var(--color-resaltado);
+}
+
+Button{
+  padding: 1rem;
+  width: 100%;
+  background-color: var(--color-resaltado);
+  color: var(--color-background);
+  font-family: "Brygada 1918", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+Button.disabled{
+  opacity: 0.3;
+}
+
+Button:hover{
+  letter-spacing: .4rem;
+}
+h1{
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  font-size: 2.2em;
+}
+h2{
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+.bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    background-color: var(--color-resaltado);
+    transform-origin: 0 0;
+    transform: scaleX(0.5);
+}

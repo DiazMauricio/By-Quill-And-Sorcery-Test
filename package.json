@@ -1,7 +1,7 @@
 {
   "homepage": "https://diazmauricio.github.io/By-Quill-And-Sorcery-Test/",
   "name": "by-quill-and-sorsery-test",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {

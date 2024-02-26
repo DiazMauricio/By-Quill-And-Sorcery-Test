@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/by-quill-and-sorcery-test/",
+  base: "/By-Quill-And-Sorcery-Test/",
   plugins: [react()],
 })

@@ -7,7 +7,7 @@ const results = [
         "title": "Ramcaster",
         "subtitle": "Competencia & Desarrollo",
         "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore soluta aliquam perferendis doloremque ipsam modi molestias voluptatibus, commodi reprehenderit quibusdam minus hic harum numquam. Quaerat eaque eos placeat itaque harum!",
-        "colors": ["#220C0C", "#A03628"]
+        "colors": ["#241414", "#A83F3B"]
     },
     {
         "icon": Vicroft,
@@ -66,8 +66,10 @@ const Result = ({restart, points, changeColors}) => {
         <div className="Result">
             {results[calcResult()].icon()}
             <div className="Info">
-                <h1>{results[calcResult()].title}</h1>
-                <h2>{results[calcResult()].subtitle}</h2>
+                <div>
+                    <h1>{results[calcResult()].title}</h1>
+                    <h2>{results[calcResult()].subtitle}</h2>
+                </div>
                 <p>{results[calcResult()].text}</p>
             </div>
             <div className="Houses">

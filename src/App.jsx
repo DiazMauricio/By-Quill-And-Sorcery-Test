@@ -26,13 +26,16 @@ function App() {
     shuffleQuestions();
   }, []);
 
-  const shuffleQuestions = () =>{
-    let tempQ = shuffle(Questions);
-    tempQ.map((q)=>{
-      let op = shuffle(q.options)
-      q.options = op;
+
+  const shuffleQuestions = () =>{ 
+
+    let shuffledQuestions = shuffle(Questions);
+    shuffledQuestions.map((q)=>{
+      let shuffleOptions = shuffle(q.options)
+      q.options = shuffleOptions;
     })
-    setQuestions(tempQ)
+
+    setQuestions(shuffledQuestions)
   }
 
   const sumPoints = () => {
@@ -65,6 +68,7 @@ function App() {
   }
 
   const pageSwitch = () => {
+
     if (!start){
       return (
         <HomePage startTest={startTest}/>

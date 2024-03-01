@@ -1,0 +1,34 @@
+.Result .Houses{
+    height: auto;
+    color: var(--color-resaltado);
+    letter-spacing: .1rem;
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    border-top: solid 2px var(--color-resaltado);
+    padding: 1rem 0;
+}
+.HousePorcentage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+.logo-container{
+    min-width: 100%;
+    transform: translateY(5rem);
+    transition: transform 0.5s;
+}
+.HousePorcentage .bar{
+    width: 1em;
+    height: 5rem;
+    background-color:  var(--color-resaltado);
+    transform: scaleY(1);
+    transform-origin: 0 100%;
+    margin: 0.2em;
+    transition: transform 0.5s;
+}

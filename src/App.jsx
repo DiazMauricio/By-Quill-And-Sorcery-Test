@@ -1,97 +1,68 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
-import Question from './components/Question'
-import { Questions } from './Questions'
 import HomePage from './components/HomePage'
 import Result from './components/Result'
+import Questions from './components/Questions'
+import { ResultsArray } from './ResultArray'
+import Porcentage from './components/Porcentage'
 
-const shuffle = (array) => { 
-    for (let i = array.length - 1; i > 0; i--) { 
-      const j = Math.floor(Math.random() * (i + 1)); 
-      [array[i], array[j]] = [array[j], array[i]]; 
-    } 
-    return array;
-};
 
 function App() {
-  const [points, setPoints] = useState( [ 0, 0, 0, 0, 0] );
-  const [tempPoints, setTempPoints] = useState([ 0, 0, 0, 0, 0]);
-  const [questions, setQuestions] = useState(false);
-  const [qnumber, setQNumber] = useState(0);
-  const [start, setStart] = useState(false);
+  const [points, setPoints] = useState([ 0, 0, 0, 0, 0]);
   const [colors, setColors] = useState(["#1E2426", "#C68951"]);
-
-
-  useEffect(() => {
-    shuffleQuestions();
-  }, []);
-
-
-  const shuffleQuestions = () =>{ 
-
-    let shuffledQuestions = shuffle(Questions);
-    shuffledQuestions.map((q)=>{
-      let shuffleOptions = shuffle(q.options)
-      q.options = shuffleOptions;
-    })
-
-    setQuestions(shuffledQuestions)
-  }
-
-  const sumPoints = () => {
-    let array1 = tempPoints;
-    let sum = array1.map((num, i) => {
-      return num + points[i];
-    });
-    setPoints(sum);
-  }
+  const [page, setPage] = useState(0);
+  const [winner, setWinner] = useState(ResultsArray[0]);
 
   const restartTest = () => {
-    setStart(false);
-    shuffleQuestions();
-    setQNumber(0);
-    setPoints( [ 0, 0, 0, 0, 0] );
+    setPage(0);
+    setPoints([ 0, 0, 0, 0, 0]);
   }
 
   const startTest = () => {
-    setStart(true);
+    setPage(1);
   }
 
-  const nextQuestion = (enable) => {
-    if(enable){
-      sumPoints();
-      setQNumber(qnumber + 1);
+  const calcWinner = (points) => {
+    let winner = 0;
+    for (let i = 0; i < points.length; i++) {
+        winner = points[i] > points[winner] ? i : winner;
     }
+    return winner;
   }
+
+
   const changeColors = (newColors) => {
-    setColors(newColors)
+    setColors(newColors);
+  }
+
+  const showResult = (finalPoints) => {
+    setPoints(finalPoints);
+    let w = ResultsArray[calcWinner(finalPoints)]
+    setWinner(w);
+    changeColors(w.colors);
+    setPage(2);
   }
 
   const pageSwitch = () => {
-
-    if (!start){
-      return (
-        <HomePage startTest={startTest}/>
-      )
-    } else if (qnumber + 1 > questions.length){
-      return(
-        <Result restart={restartTest} points={points} changeColors={changeColors}/>
-      )
-    } else{
-      return (
-        <Question question={questions[qnumber]} nextQuestion={nextQuestion} qNumber={qnumber} setTempPoints={setTempPoints} changeColors={changeColors}/>
-      )
-    }
+      switch(page) {
+        case 2:
+          return (
+          <Result restart={restartTest} winner={winner}>
+            <Porcentage points={points}/>
+          </Result>
+          )
+        case 1: 
+          return <Questions showResult={showResult} changeColors={changeColors}/>;
+        default:
+          return <HomePage startTest={startTest} />;
+      }
   }
 
   return (
     <>
       <div className='container' style={{"--color-background": colors[0], "--color-resaltado": colors[1]}}>
-        {
-          start ? <div className='bar' style={{"transform":"scaleX("+((qnumber)/(questions.length))+")"}}/> : ""
-        }
         <div className='app'>
-        {   pageSwitch()  }
+          {   pageSwitch()  }
         </div>
       </div>
     </>

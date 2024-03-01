@@ -1,13 +1,19 @@
+.Question-container{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    gap: 2rem;
+}
 .Question{
     display: flex;
     flex-direction: column;
-    min-height: 14rem;
-    gap: 3rem;
-    margin: 2rem 0;
+    gap: 2rem;
 }
 .Question > p{
-    font-size: 1.1em;
+    font-size: 1.2em;
     text-align: center;
+    padding: 2rem;
+    border-bottom: solid 2px var(--color-resaltado);
 }
 .RangeAnswer{
     display: flex;

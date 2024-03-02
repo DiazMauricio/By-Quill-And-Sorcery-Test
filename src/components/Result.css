@@ -10,6 +10,7 @@
 }
 .Result > svg{
     max-width: 15rem;
+    margin-top: 2rem;
     fill: var(--color-resaltado);
 }
 .Result .Info{
@@ -17,7 +18,11 @@
     flex-direction: column;
     border-top: solid 2px var(--color-resaltado);
     padding-top: 2rem;
-    gap: 1rem;
+    gap: 1.5rem;
+}
+.Result p {
+    text-align: left;
+    /* font-size: 1.2em; */
 }
 .Result h2{
     color: var(--color-resaltado);

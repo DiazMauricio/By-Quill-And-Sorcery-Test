@@ -15,7 +15,7 @@ const Result = ({restart, children, winner}) => {
                     <h1>{winner.title}</h1>
                     <h2>{winner.subtitle}</h2>
                 </div>
-                <p>{winner.text}</p>
+                {winner.text()}
             </div>
                 {children}            
             <button onClick={restart}>reiniciar</button>

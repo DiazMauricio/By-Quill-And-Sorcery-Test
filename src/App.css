@@ -7,6 +7,8 @@
   font-family: "Brygada 1918", serif;
   font-optical-sizing: auto;
   font-style: normal;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 *{
   border: none;
@@ -21,10 +23,10 @@ body{
 .container{
   background-color: var(--color-background);
   mix-blend-mode: multiply;
+  transition: .2s;
 }
 
 .app{
-  /* position: relative; */
   max-width: 450px;
   margin: auto;
   display: flex;
@@ -60,7 +62,7 @@ Button.disabled{
   opacity: 0.3;
 }
 
-Button:hover{
+Button:not(.disabled):hover{
   letter-spacing: .4rem;
 }
 h1{
@@ -73,6 +75,9 @@ h2{
   font-weight: 100;
   text-transform: uppercase;
   font-size: 1.3em;
+}
+p {
+  font-size: 1.1em;
 }
 
 .progressBar{

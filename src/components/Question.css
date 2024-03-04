@@ -10,11 +10,10 @@
     gap: 2rem;
 }
 .Question > p{
-    font-size: 1.2em;
-    text-align: center;
-    padding: 2rem;
+    padding: 2rem 0;
     border-bottom: solid 2px var(--color-resaltado);
 }
+
 .RangeAnswer{
     display: flex;
     justify-content: center;
@@ -101,14 +100,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    text-align: center;
+    /* text-align: center; */
     color: var(--color-resaltado);
 }
 
 
+
+
 .MultiQuestion .answer{
     position: relative;
-    margin: 0.5em 1em;
+    margin: 0em 0em;
     cursor: pointer;
     box-sizing: border-box;
 }

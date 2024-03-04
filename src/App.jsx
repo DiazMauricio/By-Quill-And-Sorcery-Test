@@ -5,6 +5,7 @@ import Result from './components/Result'
 import Questions from './components/Questions'
 import { ResultsArray } from './ResultArray'
 import Porcentage from './components/Porcentage'
+import { AnimatePresence, motion } from 'framer-motion';
 
 
 function App() {
@@ -62,7 +63,20 @@ function App() {
     <>
       <div className='container' style={{"--color-background": colors[0], "--color-resaltado": colors[1]}}>
         <div className='app'>
-          {   pageSwitch()  }
+
+        <AnimatePresence initial={false} mode="wait">
+
+          <motion.div 
+          className='animation'
+          key={page}
+          animate={{opacity: 1}} 
+          initial={{opacity: 0}}
+          exit={{opacity:0}}
+          transition={{duration: .2}}
+          >
+            {   pageSwitch()  }
+          </motion.div>
+        </AnimatePresence>
         </div>
       </div>
     </>

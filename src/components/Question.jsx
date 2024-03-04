@@ -4,15 +4,15 @@ import './Question.css';
 const Question = ({question, clickOptions, qNumber}) => {
 
     return ( 
-        <div className='Question'>
-            <p>{question.text}</p>
+        <>
+            <p>{question?.text}</p>
             {
-                question.options.length === 2 && qNumber !== "Tie"? 
-                    <RangeQuestion options={question.options} clickOptions={clickOptions} name={qNumber} />
+                question?.options.length === 2 && qNumber !== "Tie"? 
+                    <RangeQuestion options={question?.options} clickOptions={clickOptions} name={qNumber} />
                 : 
-                    <MultiQuestion options={question.options} clickOptions={clickOptions} name={qNumber} />
+                    <MultiQuestion options={question?.options} clickOptions={clickOptions} name={qNumber} />
             }
-        </div>
+        </>
     );
 }
 export default Question;
@@ -68,7 +68,7 @@ const MultiQuestion = ({clickOptions, name, options}) => {
     return (
         <div className='MultiQuestion'>
             {
-                options.map(( option, i) => 
+                options?.map(( option, i) => 
                     <MultiOpc  option={option} key={i} onClick={()=>clickOptions(option.points)} name={name}/>
                 )
             }

@@ -1,5 +1,6 @@
 import { DefaultTieBreaker } from "../QuestionsArray";
 
+
 const TieBreaker = ({points, clickOptions}) => {
 
       const checkTie = (p) => {
@@ -15,7 +16,6 @@ const TieBreaker = ({points, clickOptions}) => {
 
     return ( 
         <>
-        <div className='Question'>
             <p>{DefaultTieBreaker.text}</p>
             <div className='MultiQuestion'>
                 {
@@ -31,7 +31,6 @@ const TieBreaker = ({points, clickOptions}) => {
                     )
                 }
             </div>
-        </div>
         </>
      );
 }

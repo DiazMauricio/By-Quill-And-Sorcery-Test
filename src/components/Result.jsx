@@ -1,12 +1,7 @@
-import "./Result.css"
-
+import "./Result.css";
 
 
 const Result = ({restart, children, winner}) => {
-
-
-    
-
     return ( 
         <div className="Result">
             {winner.icon()}

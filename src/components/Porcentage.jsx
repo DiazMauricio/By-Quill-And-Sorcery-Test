@@ -1,5 +1,7 @@
 import { Ramcaster, Vicroft, Fanginor, Blazemont, Blackwood } from "../assets/IconosCasas";
 import "./Porcentage.css";
+import { motion } from 'framer-motion';
+
 
 const Porcentage = ({points}) => {
     const calcPorcentage = (position) => {
@@ -14,13 +16,18 @@ const Porcentage = ({points}) => {
     }
     
     return ( 
-        <div className="Houses">
+        <motion.div className="Houses"
+        animate={{opacity: 1}} 
+        initial={{opacity: 0}}
+        transition={{duration: 0.5, delay: 1}}
+        
+        >
             <HousePorcentage Logo={Ramcaster} porcentage={calcPorcentage(0)}/>
             <HousePorcentage Logo={Vicroft} porcentage={calcPorcentage(1)}/>
             <HousePorcentage Logo={Fanginor} porcentage={calcPorcentage(2)}/>
             <HousePorcentage Logo={Blazemont} porcentage={calcPorcentage(3)}/>
             <HousePorcentage Logo={Blackwood} porcentage={calcPorcentage(4)}/>
-        </div>
+        </motion.div>
      );
 }
  

@@ -3,6 +3,8 @@ import Question from "./Question";
 import { QuestionsArray } from "../QuestionsArray";
 import TieBreaker from './TieBreaker';
 import { colorsArray } from '../ColorsArray';
+import { AnimatePresence, motion } from 'framer-motion';
+
 
 const shuffle = (array) => { 
     for (let i = array.length - 1; i > 0; i--) { 
@@ -83,12 +85,32 @@ const Questions = ({ showResult, changeColors}) => {
     return ( 
         <div className='Question-container'>
             <div className='progressBar' style={{"transform":"scaleX("+((qNumber)/(questions.length))+")"}}/>
-            {
-                tie ? 
-                <TieBreaker points={points} clickOptions={clickOptions} /> :
-                <Question question={questions[qNumber]} clickOptions={clickOptions} qNumber={qNumber}/>
-            }
-            <button onClick={nextQuestion}  className={enable ? "": "disabled"}>siguiente</button>
+             <AnimatePresence initial={false} mode="wait">
+                <motion.div 
+                className='Question' 
+                key={qNumber}
+                animate={{opacity: 1}} 
+                initial={{opacity: 0}}
+                exit={{opacity:0}}
+                transition={{duration: .2}}
+                >
+                
+                    {
+                        tie ? 
+                        <TieBreaker points={points} clickOptions={clickOptions} /> :
+                        <Question question={questions[qNumber]} clickOptions={clickOptions} qNumber={qNumber}/>
+                    }
+                    <motion.button 
+                    onClick={nextQuestion}  
+                    className={enable ? "": "disabled"}
+                    initial={{opacity:0}}
+                    animate={{opacity:enable ? 1 : 0.3}}
+                    transition={{duration: .2}}
+
+
+                    >siguiente</motion.button>
+                </motion.div>
+            </AnimatePresence>
         </div>
      );
 }

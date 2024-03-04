@@ -4,7 +4,8 @@ import "./HomePage.css";
 
 const HomePage = ({startTest}) => {
     return ( 
-        <div className="HomePage">
+        <div className="HomePage"
+        >
             <BQnSLogo/>
             <div>
                 <h1>Test de Casas</h1>

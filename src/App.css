@@ -2,7 +2,6 @@
   --color-background: #1E2426;
   --color-main: #fff;
   --color-resaltado: #C68951;
-
   color: var(--color-main);
   font-family: "Brygada 1918", serif;
   font-optical-sizing: auto;
@@ -38,9 +37,11 @@ body{
 }
 
 .BQnSLogo{
-  max-width: 15rem;
+  max-width: 60%;
+  /* max-height: 20vh; */
   margin: auto;
   fill: var(--color-resaltado);
+  padding: 0 2rem;
 }
 
 Button{
@@ -69,7 +70,8 @@ h1{
   font-weight: 100;
   text-transform: uppercase;
   letter-spacing: .2rem;
-  font-size: 2.2em;
+  font-size: 2em;
+  margin-bottom: 0.5rem;
 }
 h2{
   font-weight: 100;

@@ -51,7 +51,6 @@
     height: 2px;
     background-color: var(--color-resaltado);
     z-index: 1;
-
 }
 .RangeAnswer .option{
     height: 25px;
@@ -66,8 +65,6 @@
     justify-content: center;
     align-items: center;
     z-index: 2;
-
-
 }
 .RangeAnswer .option::after{
     content: '';
@@ -78,7 +75,6 @@
     border-radius: 100%;
     background-color: var(--color-resaltado);
     transition: transform 0.1s linear;
-
 }
 .RangeAnswer .option:hover::after{
     transform: scale(0.7);
@@ -95,26 +91,28 @@
   width: 0;
 }
 
-.MultiQuestion{
+.MultiQuestion-Title{
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.MultiAnswer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    /* text-align: center; */
+    text-align: center;
     color: var(--color-resaltado);
 }
 
-
-
-
-.MultiQuestion .answer{
+.MultiAnswer .answer{
     position: relative;
     margin: 0em 0em;
     cursor: pointer;
     box-sizing: border-box;
 }
 
-.MultiQuestion .option{
+.MultiAnswer .option{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,13 +123,11 @@
     border: 2px solid var(--color-background);
     font-weight: 800;
     text-transform: uppercase;
-
 }
-.MultiQuestion .option:hover{
+.MultiAnswer .option:hover{
     border: 2px solid var(--color-resaltado);
 }
-
-.MultiQuestion input:checked ~ .option{
+.MultiAnswer input:checked ~ .option{
     background-color: var(--color-resaltado);
     color: var(--color-background);
 }

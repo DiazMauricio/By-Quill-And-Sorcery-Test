@@ -98,7 +98,7 @@ const Questions = ({ showResult, changeColors}) => {
                     {
                         tie ? 
                         <TieBreaker points={points} clickOptions={clickOptions} /> :
-                        <Question question={questions[qNumber]} clickOptions={clickOptions} qNumber={qNumber}/>
+                        <Question question={questions[qNumber]} clickOptions={clickOptions} name={qNumber}/>
                     }
                     <motion.button 
                     onClick={nextQuestion}  

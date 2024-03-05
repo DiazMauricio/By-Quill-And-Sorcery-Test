@@ -17,7 +17,7 @@ const TieBreaker = ({points, clickOptions}) => {
     return ( 
         <>
             <p>{DefaultTieBreaker.text}</p>
-            <div className='MultiQuestion'>
+            <div className='MultiAnswer'>
                 {
                     DefaultTieBreaker.options.map(( option, i) => {
                         if (checkTie(points).includes(i)){

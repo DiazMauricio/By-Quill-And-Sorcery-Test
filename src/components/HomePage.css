@@ -19,3 +19,10 @@
 .Houses svg{
     fill: var(--color-resaltado);
 }
+.HomePage .header{
+  --border: 2px solid var(--color-resaltado);
+
+    border-top: var(--border);
+    border-bottom: var(--border);
+    padding: 2rem 0rem;
+}

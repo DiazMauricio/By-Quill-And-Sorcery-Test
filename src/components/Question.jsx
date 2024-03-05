@@ -1,16 +1,16 @@
 import './Question.css';
 
 //  COMPONENT EXPORT DEFAULT.
-const Question = ({question, clickOptions, qNumber}) => {
+const Question = ({question, clickOptions, name}) => {
 
+    let rangeQuestion = question?.options.length === 2 && name !== "Tie";
     return ( 
         <>
-            <p>{question?.text}</p>
             {
-                question?.options.length === 2 && qNumber !== "Tie"? 
-                    <RangeQuestion options={question?.options} clickOptions={clickOptions} name={qNumber} />
+                rangeQuestion? 
+                    <RangeQuestion question={question} clickOptions={clickOptions} name={name} />
                 : 
-                    <MultiQuestion options={question?.options} clickOptions={clickOptions} name={qNumber} />
+                    <MultiQuestion question={question} clickOptions={clickOptions} name={name} />
             }
         </>
     );
@@ -37,41 +37,47 @@ const MultiOpc = ({name, option, onClick}) => {
 }
 
 //  OPTIONS CONTAINER.
-const RangeQuestion = ({ clickOptions, options, name}) => {
+const RangeQuestion = ({ clickOptions, question, name}) => {
     const changePoints = (points) => {
         let p = [0, 0, 0, 0, 0];
-        let left = options[0].casa
-        let right = options[1].casa
+        let left = question.options[0].casa
+        let right = question.options[1].casa
         p[left] = points[0];
         p[right] = points[1];
         clickOptions(p);
     }
 
     return (
-        <div className="RangeAnswer">
-            <div className='options'>
-                <RadioOpc onClick={()=>changePoints([ 2,-1])} name={name} />
-                <RadioOpc onClick={()=>changePoints([ 1, 0])} name={name} />
-                <RadioOpc onClick={()=>changePoints([ 0, 0])} name={name} />
-                <RadioOpc onClick={()=>changePoints([ 0, 1])} name={name} />
-                <RadioOpc onClick={()=>changePoints([-1, 2])} name={name} />
+        <>
+            <p className='RangeQuestion-Title' >{question?.text}</p>
+            <div className="RangeAnswer">
+                <div className='options'>
+                    <RadioOpc onClick={()=>changePoints([ 2,-1])} name={name} />
+                    <RadioOpc onClick={()=>changePoints([ 1, 0])} name={name} />
+                    <RadioOpc onClick={()=>changePoints([ 0, 0])} name={name} />
+                    <RadioOpc onClick={()=>changePoints([ 0, 1])} name={name} />
+                    <RadioOpc onClick={()=>changePoints([-1, 2])} name={name} />
+                </div>
+                <div className='options'>
+                    <p>{question.options[0].text}</p>
+                    <p>{question.options[1].text}</p>
+                </div>
             </div>
-            <div className='options'>
-                <p>{options[0].text}</p>
-                <p>{options[1].text}</p>
-            </div>
-        </div>
+        </>
     )
 }
 
-const MultiQuestion = ({clickOptions, name, options}) => {
+const MultiQuestion = ({clickOptions, name, question}) => {
     return (
-        <div className='MultiQuestion'>
+        <>
+        <p className='MultiQuestion-Title' >{question.text}</p>
+        <div className='MultiAnswer'>
             {
-                options?.map(( option, i) => 
+                question.options.map(( option, i) => 
                     <MultiOpc  option={option} key={i} onClick={()=>clickOptions(option.points)} name={name}/>
                 )
             }
         </div>
+        </>
     )
 }

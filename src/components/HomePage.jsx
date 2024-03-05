@@ -7,9 +7,9 @@ const HomePage = ({startTest}) => {
         <div className="HomePage"
         >
             <BQnSLogo/>
-            <div>
-                <h1>Test de Casas</h1>
-                <p>Realiza el test para descubrir con que casa eres mas compatible</p>
+            <div className="header">
+                <h1>Examen de Selección</h1>
+                <p>Realiza esta evaluación para descubrir con que casa eres mas compatible</p>
             </div>
             <div className="Houses">
                 <Ramcaster/>

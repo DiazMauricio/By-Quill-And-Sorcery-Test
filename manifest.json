@@ -3,17 +3,17 @@
     "name":"by Quill & Sorcery Examen de Seleción",
     "icons":[
         {
-            "src": "public/logo.svg",
+            "src": "logo.svg",
             "type": "image/svg+xml",
             "sizes": "512x512"
         },
         {
-            "src": "public/icons-192.png",
+            "src": "icons-192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "public/icons-512.png",
+            "src": "icons-512.png",
             "type": "image/png",
             "sizes": "512x512"
         }

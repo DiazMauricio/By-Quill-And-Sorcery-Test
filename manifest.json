@@ -1,0 +1,16 @@
+{
+    "short-name": "Q&S Selección",
+    "name":"by Quill & Sorcery Examen de Seleción",
+    "icons":[
+        {
+            "src": "/logo.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ],
+    "start_url" : ".",
+    "scope": "/",
+    "display" : "standalone",
+    "theme_color" : "#000000",
+    "background_color" : "#1E2426"
+}

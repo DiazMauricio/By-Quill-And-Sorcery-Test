@@ -19,6 +19,8 @@ const HomePage = ({startTest}) => {
                 <Blackwood/>
             </div>
             <button onClick={startTest}>Empezar</button>
+            <footer>By Diaz J. Mauricio</footer>
+
         </div>
      );
 }

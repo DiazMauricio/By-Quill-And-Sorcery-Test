@@ -14,6 +14,7 @@ const Result = ({restart, children, winner}) => {
             </div>
                 {children}            
             <button onClick={restart}>reiniciar</button>
+            <footer>By Diaz J. Mauricio</footer>
         </div>
      );
 }
